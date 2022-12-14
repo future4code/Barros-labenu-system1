@@ -1,0 +1,5 @@
+export const TABLE_CLASS = "Labe_Classroom"
+export const TABLE_STUDENTES = "Labe_Students"
+export const TABLE_TEACHERS = "Labe_Teachers"
+export const TABLE_HOBBY = "Labe_Hobbys"
+export const TABLE_EXPERTISE = "Labe_Expertises"
