@@ -1,4 +1,10 @@
-export const classroom = [
+import { TclassRoom } from "../model/ClassRoom"
+import { TExpertise } from "../model/Expertise"
+import { THobby } from "../model/Hobby"
+import { TUser } from "../model/User"
+
+
+export const classroom: TclassRoom[]= [
     {
         id: "1",
         name: "Barros",
@@ -12,7 +18,7 @@ export const classroom = [
     
 ]
 
-export const student = [
+export const student: TUser[] = [
     {
         id: "1",
         name: "Kayo Céshar",
@@ -29,7 +35,7 @@ export const student = [
     },
 ]
 
-export const teacher = [
+export const teacher: TUser[]= [
     {
         id: "1",
         name: "Junior Prado",
@@ -46,7 +52,7 @@ export const teacher = [
     }
 ]
 
-export const hobby = [
+export const hobby: THobby[] = [
     {
         id: "1",
         name: "Pescar",
@@ -69,7 +75,7 @@ export const hobby = [
     }
 ]
 
-export const expertise = [
+export const expertise: TExpertise[] = [
     {
         id: "1",
         name: "JS",

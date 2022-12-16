@@ -5,6 +5,7 @@ import { ping } from './endpoints/ping'
 
 
 dotenv.config()
+
 const app = express()
 
 app.use(express.json())

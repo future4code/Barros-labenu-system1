@@ -1,13 +1,13 @@
 import connection from "./connection";
 import { classroom, expertise, hobby, student, teacher } from "./data";
-import { TABLE_CLASS, TABLE_EXPERTISE, TABLE_HOBBY, TABLE_STUDENTES, TABLE_TEACHERS } from "./tableNames";
+import { TABLE_CLASS, TABLE_TEACHERS_EXPERTISE, TABLE_STUDENTS_HOBBY, TABLE_STUDENTS, TABLE_TEACHERS, TABLE_HOBBY, TABLE_EXPERTISE } from "./tableNames";
 
 
 
 const createTables = async () => {
     await connection.raw(`
 SET FOREIGN_KEY_CHECKS=0;
-DROP TABLE IF EXISTS ${TABLE_CLASS}, ${TABLE_STUDENTES}, ${TABLE_HOBBY}, ${TABLE_TEACHERS}, ${TABLE_EXPERTISE};
+DROP TABLE IF EXISTS ${TABLE_CLASS}, ${TABLE_STUDENTS}, ${TABLE_STUDENTS_HOBBY}, ${TABLE_TEACHERS}, ${TABLE_TEACHERS_EXPERTISE};
 
 CREATE TABLE ${TABLE_CLASS}(
     id VARCHAR(255) PRIMARY KEY NOT NULL,
@@ -15,7 +15,7 @@ CREATE TABLE ${TABLE_CLASS}(
     module VARCHAR(255) DEFAULT 0
 );
 
-CREATE TABLE ${TABLE_STUDENTES}(
+CREATE TABLE ${TABLE_STUDENTS}(
     id VARCHAR(255) PRIMARY KEY NOT NULL,
     name VARCHAR(255) NOT NULL UNIQUE,
     email VARCHAR(255) NOT NULL UNIQUE,
@@ -33,19 +33,35 @@ CREATE TABLE ${TABLE_TEACHERS}(
     FOREIGN KEY (class_id) REFERENCES ${TABLE_CLASS}(id) 
 );
 
+CREATE TABLE ${TABLE_STUDENTS_HOBBY}(
+    id VARCHAR(255) PRIMARY KEY NOT NULL,
+    students_id varchar(255) NOT NULL,
+    hobby_id VARCHAR(255) NOT NULL,
+    FOREIGN KEY(students_id) REFERENCES ${TABLE_STUDENTS}(id),
+    FOREIGN KEY(hobby_id) REFERENCES ${TABLE_HOBBY}(id)  
+);
+
 CREATE TABLE ${TABLE_HOBBY}(
     id VARCHAR(255) PRIMARY KEY NOT NULL,
     name VARCHAR(255) NOT NULL,
-    student_id VARCHAR(255) NOT NULL,
-    FOREIGN KEY (student_id) REFERENCES ${TABLE_STUDENTES}(id)
+     
 );
+
+CREATE TABLE ${TABLE_TEACHERS_EXPERTISE}(
+    id VARCHAR(255) PRIMARY KEY NOT NULL,
+    teachers_id VARCHAR(255) NOT NULL,
+    expertise_id VARCHAR(255) NOT NULL,
+    FOREIGN KEY (teachers_id) REFERENCES ${TABLE_TEACHERS}(id),
+    FOREIGN KEY (expertise_id) REFERENCES ${TABLE_EXPERTISE}(id)
+);
+
+
 
 CREATE TABLE ${TABLE_EXPERTISE}(
     id VARCHAR(255) PRIMARY KEY NOT NULL,
-    name VARCHAR(255) NOT NULL,
-    teacher_id VARCHAR(255),
-    FOREIGN KEY (teacher_id) REFERENCES ${TABLE_TEACHERS}(id) 
+    name VARCHAR(255) NOT NULL UNIQUE
 );
+
 
 SET FOREIGN_KEY_CHECKS=1;
     `)
@@ -65,9 +81,9 @@ const insertData = async () => {
         .then(() => console.log(`${TABLE_CLASS} populated!`))
         .catch((error: any) => printError(error))
 
-        await connection(TABLE_STUDENTES)
+        await connection(TABLE_STUDENTS)
         .insert(student)
-        .then(() => console.log(`${TABLE_STUDENTES} populated!`))
+        .then(() => console.log(`${TABLE_STUDENTS} populated!`))
         .catch((error: any) => printError(error))
 
         await connection(TABLE_TEACHERS)
@@ -75,14 +91,14 @@ const insertData = async () => {
         .then(() => console.log(`${TABLE_TEACHERS} populated!`))
         .catch((error: any) => printError(error))
 
-        await connection(TABLE_HOBBY)
+        await connection(TABLE_STUDENTS_HOBBY)
         .insert(hobby)
-        .then(() => console.log(`${TABLE_HOBBY} populated!`))
+        .then(() => console.log(`${TABLE_STUDENTS_HOBBY} populated!`))
         .catch((error: any) => printError(error))
 
-        await connection(TABLE_EXPERTISE)
+        await connection(TABLE_TEACHERS_EXPERTISE)
         .insert(expertise)
-        .then(() => console.log(`${TABLE_EXPERTISE} populated!`))
+        .then(() => console.log(`${TABLE_TEACHERS_EXPERTISE} populated!`))
         .catch((error: any) => printError(error))
 
     }catch (error: any) {
