@@ -1,6 +1,8 @@
 import { TclassRoom } from "../model/ClassRoom"
 import { TExpertise } from "../model/Expertise"
 import { THobby } from "../model/Hobby"
+import { TstudentHobby } from "../model/StudentHobby"
+import { TteacherExpertise } from "../model/TeacherExpertise"
 import { TUser } from "../model/User"
 
 
@@ -12,8 +14,13 @@ export const classroom: TclassRoom[]= [
     },
     {
         id: "2",
-        name: "Jamisson",
+        name: "Hooks",
         module: "2"
+    },
+    {
+        id: "3",
+        name: "Lammar",
+        module: "0"
     },
     
 ]
@@ -52,50 +59,95 @@ export const teacher: TUser[]= [
     }
 ]
 
-export const hobby: THobby[] = [
+
+export const studentHobby: TstudentHobby[] = [
     {
         id: "1",
-        name: "Pescar",
-        student_id: "1"
+        student_id: "1",
+        hobby_id: "1"
     },
     {
         id: "2",
-        name: "Viajar",
-        student_id: "1"
+        student_id: "1",
+        hobby_id: "2"
     },
     {
         id: "3",
-        name: "Cinema",
-        student_id: "2"
+        student_id: "2",
+        hobby_id: "3"
     },
     {
         id: "4",
-        name: "Nadar",
-        student_id: "2"
+        student_id: "2",
+        hobby_id: "4"
+    },
+    
+]
+
+
+
+
+export const hobby: THobby[] = [
+    {
+        id: "1",
+        name: "Pescar"
+    },
+    {
+        id: "2",
+        name: "Viajar"
+    },
+    {
+        id: "3",
+        name: "Cinema"
+    },
+    {
+        id: "4",
+        name: "Nadar"
     }
 ]
+
+
+export const teacherExpertise: TteacherExpertise[] = [
+    {
+        id: "1",
+        teacher_id: "1",
+        expertise_id: "1"
+    },
+    {
+        id: "2",
+        teacher_id: "1",
+        expertise_id: "2"
+    },
+    {
+        id: "3",
+        teacher_id: "2",
+        expertise_id: "3"
+    },
+    {
+        id: "4",
+        teacher_id: "2",
+        expertise_id: "4"
+    },
+]
+
+
 
 export const expertise: TExpertise[] = [
     {
         id: "1",
-        name: "JS",
-        teacher_id: "1"
+        name: "JS"        
     },
     {
         id: "2",
-        name: "CSS",
-        teacher_id: "1"
+        name: "CSS"
     },
     {
         id: "3",
-        name: "React",
-        teacher_id: "2"
-
+        name: "React"
     },
     {
         id: "4",
-        name: "TypeScript",
-        teacher_id: "2"        
+        name: "TypeScript"       
     }
 ]
 

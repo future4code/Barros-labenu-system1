@@ -1,3 +1,74 @@
 ### Endpoint de teste
 GET http://localhost:3003/ping
 
+### Create Class
+POST http://localhost:3003/classroom
+Content-Type: application/json
+
+{
+    "name": "Einsten"
+}
+
+### Search Class
+
+GET http://localhost:3003/classroom
+
+### update Class
+PATCH http://localhost:3003/classroom/Lammar
+Content-Type: application/json
+
+{
+    "module": "1"
+}
+
+### Create Student
+POST http://localhost:3003/student
+Content-Type: application/json
+
+{
+    "name": "Gabriel Suela",
+    "email": "gabriel@suela",
+    "birth_date": "1995-04-13",
+    "class_id": "3"
+}
+
+### Search Student
+
+GET http://localhost:3003/student/
+
+### update Student
+PATCH http://localhost:3003/student/2
+Content-Type: application/json
+
+{
+    "classId": "1"
+}
+
+
+### Create Teacher
+POST http://localhost:3003/teacher
+Content-Type: application/json
+
+{
+    "name": "Peu",
+    "email": "peu@labenu",
+    "birth_date": "1995-04-13",
+    "class_id": "3"
+}
+
+### Search Teacher
+
+GET http://localhost:3003/teacher
+
+
+### update Student
+PATCH http://localhost:3003/teacher/2
+Content-Type: application/json
+
+{
+    "classId": "3"
+}
+
+
+
+

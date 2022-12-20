@@ -1,5 +1,5 @@
 import connection from "./connection";
-import { classroom, expertise, hobby, student, teacher } from "./data";
+import { classroom, expertise, hobby, student, studentHobby, teacher, teacherExpertise } from "./data";
 import { TABLE_CLASS, TABLE_TEACHERS_EXPERTISE, TABLE_STUDENTS_HOBBY, TABLE_STUDENTS, TABLE_TEACHERS, TABLE_HOBBY, TABLE_EXPERTISE } from "./tableNames";
 
 
@@ -35,7 +35,7 @@ CREATE TABLE ${TABLE_TEACHERS}(
 
 CREATE TABLE ${TABLE_STUDENTS_HOBBY}(
     id VARCHAR(255) PRIMARY KEY NOT NULL,
-    students_id varchar(255) NOT NULL,
+    student_id varchar(255) NOT NULL,
     hobby_id VARCHAR(255) NOT NULL,
     FOREIGN KEY(students_id) REFERENCES ${TABLE_STUDENTS}(id),
     FOREIGN KEY(hobby_id) REFERENCES ${TABLE_HOBBY}(id)  
@@ -49,7 +49,7 @@ CREATE TABLE ${TABLE_HOBBY}(
 
 CREATE TABLE ${TABLE_TEACHERS_EXPERTISE}(
     id VARCHAR(255) PRIMARY KEY NOT NULL,
-    teachers_id VARCHAR(255) NOT NULL,
+    teacher_id VARCHAR(255) NOT NULL,
     expertise_id VARCHAR(255) NOT NULL,
     FOREIGN KEY (teachers_id) REFERENCES ${TABLE_TEACHERS}(id),
     FOREIGN KEY (expertise_id) REFERENCES ${TABLE_EXPERTISE}(id)
@@ -91,13 +91,23 @@ const insertData = async () => {
         .then(() => console.log(`${TABLE_TEACHERS} populated!`))
         .catch((error: any) => printError(error))
 
-        await connection(TABLE_STUDENTS_HOBBY)
+        await connection(TABLE_HOBBY)
         .insert(hobby)
+        .then(() => console.log(`${TABLE_HOBBY} populated!`))
+        .catch((error: any) => printError(error))
+
+        await connection(TABLE_STUDENTS_HOBBY)
+        .insert(studentHobby)
         .then(() => console.log(`${TABLE_STUDENTS_HOBBY} populated!`))
         .catch((error: any) => printError(error))
 
-        await connection(TABLE_TEACHERS_EXPERTISE)
+        await connection(TABLE_EXPERTISE)
         .insert(expertise)
+        .then(() => console.log(`${TABLE_EXPERTISE} populated!`))
+        .catch((error: any) => printError(error))
+
+        await connection(TABLE_TEACHERS_EXPERTISE)
+        .insert(teacherExpertise)
         .then(() => console.log(`${TABLE_TEACHERS_EXPERTISE} populated!`))
         .catch((error: any) => printError(error))
 
