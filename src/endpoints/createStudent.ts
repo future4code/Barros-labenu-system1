@@ -1,5 +1,7 @@
 import { Request, Response } from "express"
+import { Students } from "../database/Class/Students"
 import connection from "../database/connection"
+import { studentDataBase } from "../database/studentDataBase"
 import { TABLE_CLASS, TABLE_STUDENTS } from "../database/tableNames"
 import { TclassRoom } from "../model/ClassRoom"
 import { TUser } from "../model/User"
@@ -12,15 +14,25 @@ export const createStudent = async (req: Request, res: Response) => {
     try{
     const {name, email, birth_date, class_id} = req.body
 
-    const newStudent: TUser = {
-        id: Date.now().toString(),
-        name,
-        email,
-        birth_date,
+    // const newStudent: TUser = {
+    //     id: Date.now().toString(),
+    //     name,
+    //     email,
+    //     birth_date,
+    //     class_id
+    // }
+
+    const newStudent = new Students(
+        Date.now().toString(),
+        name, 
+        email, 
+        birth_date, 
         class_id
-    }
-    
-    await connection(TABLE_STUDENTS).insert(newStudent)
+    )
+
+    const studentDB = new studentDataBase()
+        studentDB.createStudent(
+            newStudent.getId(), newStudent.getName(), newStudent.getEmail(), newStudent.getBirth_date(), newStudent.getClass_id())
 
     res.status(200).send({message: "Student created successfully"})
     
