@@ -1,6 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
+
 import { ping } from './endpoints/ping'
 import { createClass } from './endpoints/createClass'
 import { searchActiveClass } from './endpoints/searchActiveClass'
