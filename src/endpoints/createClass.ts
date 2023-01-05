@@ -1,9 +1,7 @@
 import { Request, Response } from "express"
 import { ClassRoom } from "../database/Class/ClassRoom"
 import { ClassDataBase } from "../database/ClassDataBase"
-import connection from "../database/connection"
-import { TABLE_CLASS } from "../database/tableNames"
-import { TclassRoom } from "../model/ClassRoom"
+
 
 
 
@@ -13,10 +11,9 @@ export const createClass = async (req: Request, res: Response) => {
     try{
     const name = req.body.name as string
 
-    // const newClass: TclassRoom = {
-    //     id: Date.now().toString(),
-    //     name
-    // }
+    if(!name){
+        throw new Error("name not found!");        
+    }    
     
     const newClass = new ClassRoom(
         Date.now().toString(),

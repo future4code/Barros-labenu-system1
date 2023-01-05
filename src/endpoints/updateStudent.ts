@@ -1,5 +1,6 @@
 import { Request, Response } from "express"
 import connection from "../database/connection"
+import { studentDataBase } from "../database/studentDataBase"
 import { TABLE_STUDENTS } from "../database/tableNames"
 
 
@@ -12,9 +13,8 @@ export const updateStudent = async (req: Request, res: Response) => {
         const id = req.params.id as string
         const classId = req.body.classId as string
 
-        await connection(TABLE_STUDENTS)
-        .where({id: id})
-        .update({class_id: classId})
+        const studentDB = new studentDataBase()
+        await studentDB.updateStudent(id, classId)
 
     res.status(200).send({message: "student updated successfully"})
     

@@ -17,4 +17,15 @@ export class TeacherDataBase extends BaseDatabase{
         await BaseDatabase.connection(TeacherDataBase.TABLE_TEACHERS).insert(newTeacher)
     }
 
+    public searchTeacher = async () =>{
+        const result = await BaseDatabase.connection(TeacherDataBase.TABLE_TEACHERS).select()
+        return result
+    }
+
+    public updateTeacher = async (id:string, classId:string) => {
+        await BaseDatabase.connection(TeacherDataBase.TABLE_TEACHERS)
+        .where({id: id})
+        .update({class_id: classId})
+    }
+
 }

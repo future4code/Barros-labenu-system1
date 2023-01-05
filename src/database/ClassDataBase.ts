@@ -11,5 +11,23 @@ export class ClassDataBase extends BaseDatabase {
     }
     await BaseDatabase.connection(ClassDataBase.TABLE_CLASS).insert(newClass)
   }
+
+  
+
+  public searchActiveClass = async () => {
+    const result = await BaseDatabase.connection(ClassDataBase.TABLE_CLASS)
+        .select()
+        .where("module", "not like", "0")
+        return result;
+  }
+
+  public updateClass = async (className: string, module: string) => {
+    await BaseDatabase.connection(ClassDataBase.TABLE_CLASS)
+    .where({name: className})
+    .update({module:module})
+  }
+
+
+
 }
 

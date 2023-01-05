@@ -16,4 +16,21 @@ export class studentDataBase extends BaseDatabase{
 
     await BaseDatabase.connection(studentDataBase.TABLE_STUDENTS).insert(newStudent)
   }
+
+  public searchStudentByName = async (name:string) =>{
+    const result = await BaseDatabase.connection(studentDataBase.TABLE_STUDENTS)
+        .select()
+        .where("name", "like",`%${name}%`)
+    
+        return result
+        
+  }
+
+  public updateStudent = async (id: string, classId: string) => {
+    await BaseDatabase.connection(studentDataBase.TABLE_STUDENTS)
+        .where({id: id})
+        .update({class_id: classId})
+  }
+
+
 }
