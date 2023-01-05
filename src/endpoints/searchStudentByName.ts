@@ -1,5 +1,6 @@
 import { Request, Response } from "express"
 import connection from "../database/connection"
+import { studentDataBase } from "../database/studentDataBase"
 import { TABLE_CLASS, TABLE_STUDENTS } from "../database/tableNames"
 
 export const searchStudentByName = async (req: Request, res:Response) => {
@@ -7,10 +8,8 @@ export const searchStudentByName = async (req: Request, res:Response) => {
 
     try{
         const name = req.params.name as string
-
-        const result = await connection(TABLE_STUDENTS)
-        .select()
-        .where("name", "like",`%${name}%`)
+        const studentDB = new studentDataBase()
+        const result = await studentDB.searchStudentByName(name)        
         res.status(200).send(result) 
 
     }catch (error) {

@@ -9,7 +9,7 @@ Content-Type: application/json
     "name": "Einsten"
 }
 
-### Search Class
+### Search Active Class
 
 GET http://localhost:3003/classroom
 
@@ -18,7 +18,7 @@ PATCH http://localhost:3003/classroom/Lammar
 Content-Type: application/json
 
 {
-    "module": "1"
+    "module": "2"
 }
 
 ### Create Student
@@ -34,14 +34,14 @@ Content-Type: application/json
 
 ### Search Student
 
-GET http://localhost:3003/student/
+GET http://localhost:3003/student/fe
 
 ### update Student
 PATCH http://localhost:3003/student/2
 Content-Type: application/json
 
 {
-    "classId": "1"
+    "classId": "3"
 }
 
 
