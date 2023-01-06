@@ -3,7 +3,7 @@ import { Teacher } from "../database/Class/Teachers"
 import connection from "../database/connection"
 import { TABLE_TEACHERS } from "../database/tableNames"
 import { TeacherDataBase } from "../database/TeacherDataBase"
-import { TUser } from "../model/User"
+import { TUser } from "../models/User"
 
 
 

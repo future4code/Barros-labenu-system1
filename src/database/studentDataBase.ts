@@ -1,4 +1,4 @@
-import { TUser } from "../model/User"
+import { TUser } from "../models/User"
 import { BaseDatabase } from "./BaseDatabase"
 
 

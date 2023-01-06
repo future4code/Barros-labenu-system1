@@ -1,5 +1,5 @@
-import { TteacherExpertise } from "../model/TeacherExpertise";
-import { TUser } from "../model/User";
+import { TteacherExpertise } from "../models/TeacherExpertise";
+import { TUser } from "../models/User";
 import { BaseDatabase } from "./BaseDatabase";
 
 export class TeacherDataBase extends BaseDatabase{

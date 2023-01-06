@@ -2,7 +2,7 @@ import { Request, Response } from "express"
 import { ClassDataBase } from "../database/ClassDataBase"
 import connection from "../database/connection"
 import { TABLE_CLASS } from "../database/tableNames"
-import { TclassRoom } from "../model/ClassRoom"
+import { TclassRoom } from "../models/ClassRoom"
 
 
 

@@ -3,8 +3,8 @@ import { Students } from "../database/Class/Students"
 import connection from "../database/connection"
 import { studentDataBase } from "../database/studentDataBase"
 import { TABLE_CLASS, TABLE_STUDENTS } from "../database/tableNames"
-import { TclassRoom } from "../model/ClassRoom"
-import { TUser } from "../model/User"
+import { TclassRoom } from "../models/ClassRoom"
+import { TUser } from "../models/User"
 
 
 

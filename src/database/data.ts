@@ -1,9 +1,9 @@
-import { TclassRoom } from "../model/ClassRoom"
-import { TExpertise } from "../model/Expertise"
-import { THobby } from "../model/Hobby"
-import { TstudentHobby } from "../model/StudentHobby"
-import { TteacherExpertise } from "../model/TeacherExpertise"
-import { TUser } from "../model/User"
+import { TclassRoom } from "../models/ClassRoom"
+import { TExpertise } from "../models/Expertise"
+import { THobby } from "../models/Hobby"
+import { TstudentHobby } from "../models/StudentHobby"
+import { TteacherExpertise } from "../models/TeacherExpertise"
+import { TUser } from "../models/User"
 
 
 export const classroom: TclassRoom[]= [
