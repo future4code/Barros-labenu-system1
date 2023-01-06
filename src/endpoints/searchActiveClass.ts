@@ -1,15 +1,13 @@
 import { Request, Response } from "express"
-import connection from "../database/connection"
-import { TABLE_CLASS } from "../database/tableNames"
+import { ClassDataBase } from "../database/ClassDataBase"
+
 
 export const searchActiveClass = async (req: Request, res:Response) => {
     let errorCode = 400
 
     try{
-
-        const result = await connection(TABLE_CLASS)
-        .select()
-        .where("module", "not like", "0")
+        const classDB = new ClassDataBase()
+        const result = await classDB.searchActiveClass()
         res.status(200).send(result) 
 
     }catch (error) {

@@ -34,7 +34,7 @@ Content-Type: application/json
 
 ### Search Student
 
-GET http://localhost:3003/student/
+GET http://localhost:3003/student/ka
 
 ### update Student
 PATCH http://localhost:3003/student/2
@@ -61,7 +61,7 @@ Content-Type: application/json
 GET http://localhost:3003/teacher
 
 
-### update Student
+### update Teacher
 PATCH http://localhost:3003/teacher/2
 Content-Type: application/json
 

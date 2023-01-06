@@ -1,5 +1,4 @@
-//classe filha
-import { Users } from "./1_Users";
+import { Users } from "./Users";
 
 export class Students extends Users{
   hobby: string[];
@@ -11,13 +10,4 @@ export class Students extends Users{
   public getHobby(){
     return this.hobby;
   }
-
-  // public getId(){
-  //   return this.id;
-  // }
-
-  // public getName(){
-  //   return this.name;
-  // }
-
 }

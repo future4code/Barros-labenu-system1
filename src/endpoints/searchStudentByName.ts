@@ -1,16 +1,18 @@
 import { Request, Response } from "express"
-import connection from "../database/connection"
-import { TABLE_CLASS, TABLE_STUDENTS } from "../database/tableNames"
+import { StudentDataBase} from "../database/StudentDataBase"
 
 export const searchStudentByName = async (req: Request, res:Response) => {
     let errorCode = 400
 
     try{
-        const name = req.params.name as string
+        let name = req.params.name as string
 
-        const result = await connection(TABLE_STUDENTS)
-        .select()
-        .where("name", "like",`%${name}%`)
+        if(!name){
+            name = "%"
+        }
+
+        const studentDB = new StudentDataBase()
+        const result = await studentDB.searchStudentByName(name)
         res.status(200).send(result) 
 
     }catch (error) {

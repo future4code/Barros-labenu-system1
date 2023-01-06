@@ -1,5 +1,4 @@
-import { TteacherExpertise } from "../model/TeacherExpertise";
-import { TUser } from "../model/User";
+import { TUser } from "../models/User";
 import { BaseDatabase } from "./BaseDatabase";
 
 export class TeacherDataBase extends BaseDatabase{
@@ -15,6 +14,24 @@ export class TeacherDataBase extends BaseDatabase{
         } 
         
         await BaseDatabase.connection(TeacherDataBase.TABLE_TEACHERS).insert(newTeacher)
+    }
+
+    public compareEmail = async(email:string) => {
+        const result = await BaseDatabase.connection(TeacherDataBase.TABLE_TEACHERS)
+        .select()
+        .where("email", "like", email)
+        return result
+      }
+
+      public searchTeacher = async () =>{
+        const result = await BaseDatabase.connection(TeacherDataBase.TABLE_TEACHERS).select()
+        return result
+    }
+
+    public updateTeacher = async (id:string, classId:string) => {
+        await BaseDatabase.connection(TeacherDataBase.TABLE_TEACHERS)
+        .where({id: id})
+        .update({class_id: classId})
     }
 
 }

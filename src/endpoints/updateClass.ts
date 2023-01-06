@@ -1,7 +1,5 @@
 import { Request, Response } from "express"
-import connection from "../database/connection"
-import { TABLE_CLASS } from "../database/tableNames"
-import { TclassRoom } from "../model/ClassRoom"
+import { ClassDataBase } from "../database/ClassDataBase"
 
 
 
@@ -13,9 +11,29 @@ export const updateClass = async (req: Request, res: Response) => {
         const className = req.params.className as string
         const module = req.body.module as string
 
-        await connection(TABLE_CLASS)
-        .where({name: className})
-        .update({module:module})
+        if (!className) {
+            errorCode = 422
+            throw new Error("You must enter the class name.");
+        }
+        if (!module) {
+            errorCode = 422
+            throw new Error("You must enter the module.");
+        }
+
+        if(module !== "0" && 
+        module !== "1" && 
+        module !== "2" && 
+        module !== "3" && 
+        module !== "4" &&
+        module !== "5" &&
+        module !== "6"
+        ){
+            errorCode = 422
+            throw new Error("Module does not exist. The existing modules are: 0, 1, 2, 3, 4, 5,6.")            
+        }
+
+       const classDB = new ClassDataBase()
+       await classDB.updateClass(className, module)
 
     res.status(200).send({message: "module updated successfully"})
     

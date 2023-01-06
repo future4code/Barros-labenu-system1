@@ -1,4 +1,3 @@
-//Classe Mãe
 export abstract class Users {
     
   constructor (protected id: string, protected name: string, protected email: string, protected birth_date: string, protected class_id: string){

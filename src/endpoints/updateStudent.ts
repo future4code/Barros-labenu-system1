@@ -1,6 +1,6 @@
 import { Request, Response } from "express"
-import connection from "../database/connection"
-import { TABLE_STUDENTS } from "../database/tableNames"
+import { StudentDataBase} from "../database/StudentDataBase"
+
 
 
 
@@ -12,9 +12,18 @@ export const updateStudent = async (req: Request, res: Response) => {
         const id = req.params.id as string
         const classId = req.body.classId as string
 
-        await connection(TABLE_STUDENTS)
-        .where({id: id})
-        .update({class_id: classId})
+
+        if (!id) {
+            errorCode = 422
+            throw new Error("You must enter the id student.");
+        }
+        if (!classId) {
+            errorCode = 422
+            throw new Error("You must enter the id class.");
+        }
+
+        const studentDB = new StudentDataBase()
+        await studentDB.updateStudent(id, classId)
 
     res.status(200).send({message: "student updated successfully"})
     
