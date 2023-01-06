@@ -6,7 +6,7 @@ POST http://localhost:3003/classroom
 Content-Type: application/json
 
 {
-    "name": "Einsten"
+    "name": "Musk"
 }
 
 ### Search Active Class
@@ -14,7 +14,7 @@ Content-Type: application/json
 GET http://localhost:3003/classroom
 
 ### update Class
-PATCH http://localhost:3003/classroom/Lammar
+PATCH http://localhost:3003/classroom/Musk
 Content-Type: application/json
 
 {
