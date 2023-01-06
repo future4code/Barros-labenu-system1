@@ -25,9 +25,7 @@ export const createClass = async (req: Request, res: Response) => {
   
       classDB.createClass(newClass.getId(), newClass.getName());
   
-      res.status(200).send({ message: "Class created successfully" });
-
-    res.status(200).send({message: "Class created successfully"})
+      res.status(200).send({ message: "Class created successfully" });   
     
 
     }catch(error:any){
