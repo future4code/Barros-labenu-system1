@@ -93,7 +93,6 @@ Ele deve possuir ao menos 3 entidades importantes que devem existir no código c
 ><h3><strong>Mudar Turma de Modulo</strong></h3>
 
 ><h3><strong>Criar Estudante</strong></h3>
-
   >Para criar um estudante, os dados enviados ao banco precisam ser uma instância de classe Estudante;
 
 
