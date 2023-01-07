@@ -105,3 +105,7 @@ Ele deve possuir ao menos 3 entidades importantes que devem existir no código c
   1 - Deve haver no seu banco: duas turmas, dois alunos e dois professores. Adicione as pessoas às turmas da forma como achar mais pertinente, seja manualmente pelo banco de dados, seja pela aplicação através de um endpoint.
 
   2 - Você deve salvar as informações das turmas em tabelas TURMA, estudantes em ESTUDANTE e docentes em DOCENTE
+  
+ <h2><strong>Modelagem de Referencia</strong></h2>
+ 
+![Modelagem de referencia](https://user-images.githubusercontent.com/102332717/211152347-dea625bc-b9fd-4584-b967-44b8c4cd6095.png)
