@@ -1,8 +1,15 @@
 <h1>Projeto - Barros - Labenu-System1 🏦</h1>
+
+    Por: 👉Kayo Ceshar Dias
+         👉Felipe Alcântara
+         👉 Gabriel Suela
+
 <h2>Este projeto visa apresentar um sistema que represente o básico da uma organização.</h2>
 
 
-Ele deve possuir ao menos 3 entidades importantes que devem existir no código como Classes:
+Ele deve possuir ao menos 3 entidades importantes que devem existir no código como Classes: <a href="https://github.com/future4code/Barros-labenu-system1/edit/master/README.md#turma"> <i> Turma </i> </a>, <a href="https://github.com/future4code/Barros-labenu-system1/edit/master/README.md#estudante"> <i>Estudande</i></a>, <a href="https://github.com/future4code/Barros-labenu-system1/edit/master/README.md#docente"> <i>Docente</i></a>
+
+Segue abaixo cada uma das entidades:
 
   
   <h2><strong>Turma</strong></h2>
