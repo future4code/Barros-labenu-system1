@@ -39,7 +39,7 @@ export const updateClass = async (req: Request, res: Response) => {
     
 
     }catch(error:any){
-        res.status(errorCode).send({messahe: error.message})
+        res.status(errorCode).send({message: error.message})
     }
 
 
