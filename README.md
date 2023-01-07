@@ -14,7 +14,7 @@ Ele deve possuir ao menos 3 entidades importantes que devem existir no código c
         ✅nome--Nome da turma;
 
         ✅docentes--lista de ids de docentes dessa turma;
-          🔑essas ids devem existir na tabela de docentes
+          🔑essas ids devem existir na tabela de docentes.
 
         ✅estudantes-- lista de ids de estudantes dessa turma;
           🔑essas ids devem existir na tabela de estudantes
