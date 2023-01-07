@@ -1,5 +1,5 @@
 //classe filha
-import { Users } from "./1_Users";
+import { Users } from "./Users";
 
 export class Students extends Users{
   hobby: string[];

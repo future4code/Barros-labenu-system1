@@ -1,5 +1,5 @@
 //outra classe filha
-import { Users } from "./1_Users";
+import { Users } from "./Users";
 
 export class Teacher extends Users{
   expertise: string[];
