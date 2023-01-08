@@ -1,8 +1,19 @@
 <h1>Projeto - Barros - Labenu-System1 🏦</h1>
+
+    Por: 👉Kayo Ceshar Dias
+         👉Felipe Alcântara
+         👉 Gabriel Suela
+         
+<h2> Links: </h2>
+<h3> Documentação: https://documenter.getpostman.com/view/23251344/2s8Z75Spha </h3>
+<h3> Deploy: https://iwfs-labenusystem.onrender.com </h3>
+
 <h2>Este projeto visa apresentar um sistema que represente o básico da uma organização.</h2>
 
 
-Ele deve possuir ao menos 3 entidades importantes que devem existir no código como Classes:
+Ele deve possuir ao menos 3 entidades importantes que devem existir no código como Classes: <a href="https://github.com/future4code/Barros-labenu-system1/edit/master/README.md#turma"> <i> Turma </i> </a>, <a href="https://github.com/future4code/Barros-labenu-system1/edit/master/README.md#estudante"> <i>Estudande</i></a>, <a href="https://github.com/future4code/Barros-labenu-system1/edit/master/README.md#docente"> <i>Docente</i></a>
+
+Segue abaixo cada uma das entidades:
 
   
   <h2><strong>Turma</strong></h2>
@@ -83,14 +94,29 @@ Ele deve possuir ao menos 3 entidades importantes que devem existir no código c
                 📌POO (Programação Orientada a Objetos)
 
 
- <h2><strong>Funcionalidades básicas</strong></h2>
+<h2><strong>Funcionalidades básicas</strong></h2>
 
- ><h3><strong>Criar Turma</strong></h3>
+><h3><strong>Criar Turma</strong></h3>
   >Para criar uma turma, os dados enviados ao banco precisam ser uma instância de classe Turma
 
- ><h3><strong>Buscar Turmas Ativas</strong></h3>
+><h3><strong>Buscar Turmas Ativas</strong></h3>
 
- ><h3><strong>Mudar Turma de Modulo</strong></h3>
+><h3><strong>Mudar Turma de Modulo</strong></h3>
 
 ><h3><strong>Criar Estudante</strong></h3>
-  >Para criar um estudante, os dados enviados ao banco precisam ser uma instância de classe Estudante
+  >Para criar um estudante, os dados enviados ao banco precisam ser uma instância de classe Estudante;
+
+
+><h3><strong>Buscar estudantes através do nome</strong></h3>
+
+><h3><strong>Mudar Docente de Turma</strong></h3>
+
+<h2><strong>Instruções</strong></h2>
+
+  1 - Deve haver no seu banco: duas turmas, dois alunos e dois professores. Adicione as pessoas às turmas da forma como achar mais pertinente, seja manualmente pelo banco de dados, seja pela aplicação através de um endpoint.
+
+  2 - Você deve salvar as informações das turmas em tabelas TURMA, estudantes em ESTUDANTE e docentes em DOCENTE
+  
+ <h2><strong>Modelagem de Referencia</strong></h2>
+ 
+![Modelagem de referencia](https://user-images.githubusercontent.com/102332717/211152347-dea625bc-b9fd-4584-b967-44b8c4cd6095.png)
