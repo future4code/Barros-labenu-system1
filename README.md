@@ -1,33 +1,122 @@
-## LabenuSystem:
+<h1>Projeto - Barros - Labenu-System1 🏦</h1>
 
-Você estuda na Labenu_ há tanto tempo que já parecem anos, não é? Então, hoje, vamos pedir para criar um sistema que represente o básico da nossa organização. 
+    Por: 👉Kayo Ceshar Dias
+         👉Felipe Alcântara
+         👉 Gabriel Suela
+         
+<h2> Links: </h2>
+<h3> Documentação: https://documenter.getpostman.com/view/23251344/2s8Z75Spha </h3>
+<h3> Deploy: https://iwfs-labenusystem.onrender.com </h3>
 
-Ele deve possuir, ao menos, as 3 entidades importantes:
+<h2>Este projeto visa apresentar um sistema que represente o básico da uma organização.</h2>
 
-1. Estudantes 
 
-    Representa estudantes da nossa instituição. Eles devem possuir: id, nome, email, data de nascimento e os principais hobbies dele. 
+Ele deve possuir ao menos 3 entidades importantes que devem existir no código como Classes: <a href="https://github.com/future4code/Barros-labenu-system1/edit/master/README.md#turma"> <i> Turma </i> </a>, <a href="https://github.com/future4code/Barros-labenu-system1/edit/master/README.md#estudante"> <i>Estudande</i></a>, <a href="https://github.com/future4code/Barros-labenu-system1/edit/master/README.md#docente"> <i>Docente</i></a>
 
-2. Docente
+Segue abaixo cada uma das entidades:
 
-    Representa docentes da nossa instituição. Eles devem possuir: id, nome, email, data de nascimento e todas as especialidades dele. Há 7 especialidades: React, Redux, CSS, Testes, Typescript, Programação Orientada a Objetos e Backend
+  
+  <h2><strong>Turma</strong></h2>
+  
+  >Toda turma é composta pelas seguintes características:
 
-3. Turma
+        ✅id--identificador único gerado pela própria aplicação;
 
-    Toda turma é composta das seguintes características: id, nome, data de início, data de término, lista de professores responsáveis, uma lista de alunos e módulo atual em que a turma está.
+        ✅nome--Nome da turma;
 
-    O módulo pode assumir os valores de 1 a 7 ou `undefined`, indicando que as aulas dessa turma ainda não começaram. Para esse exercício, vamos considerar que existam dois tipos de turma: integral ou noturna. Há uma restrição para o nome das turmas noturnas: tem que terminar com `-na-night`.
+        ✅docentes--lista de ids de docentes dessa turma;
+          🔑essas ids devem existir na tabela de docentes.
 
-As funcionalidades básicas são:
+        ✅estudantes-- lista de ids de estudantes dessa turma;
+          🔑essas ids devem existir na tabela de estudantes
 
-→ Criar estudante;
+        ✅modulo--módulo atual da turma;
+          🔑pode assumir um valor entre 1 a 6 nas turmas ativas, 
+          ou 0, indicando que as aulas dessa turma ainda não começaram
+          
+          🔑deve iniciar como 0
 
-→ Criar docente;
 
-→ Criar turma;
+<h2><strong>Estudante</strong></h2>
 
-→ Adicionar estudante na turma;
+>Representa estudantes da nossa instituição. Cada estudante deve possuir uma, e somente uma turma por vez. Estudantes com cadastro novo começam sem alocação em nenhuma turma.
 
-→ Adicionar docente na turma;
+>Deve Possuir: 
 
-→ Pegar a idade de algum estudante a partir do id
+        ✅id--identificador único gerado pela própria aplicação
+
+        ✅nome--nome da pessoa
+
+        ✅email da pessoa
+
+        ✅data_nasc--data de nascimento no formato DD/MM/AAAA
+            💡exemplo: 21/03/1999
+  
+        ✅turma_id--id da turma da pessoa
+            🔑esse id deve existir na *tabela de turmas*
+
+        ✅hobbies--uma lista de hobbies relacionados à pessoa (passatempos)
+            🔑esses hobbies devem existir na *tabela de hobbies*
+            🔑caso não exista, deve ser adicionado à *tabela de hobbies* automaticamente
+            
+            💡exemplo:
+              ["assistir séries de tv", "jogar videogames", "passear de bike"]
+
+
+<h2><strong>Docente</strong></h2>
+
+>Representa docentes da nossa instituição.  Cada docente deve possuir uma, e somente uma turma por vez. Docentes com cadastro novo começam sem alocação em nenhuma turma.
+
+> Deve Possuir:
+
+        ✅id--identificador único gerado pela própria aplicação
+
+        ✅nome--nome da pessoa
+
+        ✅email da pessoa
+
+        ✅data_nasc--data de nascimento no formato DD/MM/AAAA
+            💡exemplo: 21/03/1999
+  
+        ✅turma_id--id da turma da pessoa
+            🔑esse id deve existir na *tabela de turmas*
+
+        ✅especialidades--uma lista de especialidades relacionadas à pessoa
+            🔑essas especialidades devem existir na *tabela de especialidades*
+
+            🔑deve iniciar com pelo menos uma das especialidades pré-definidas
+         
+            🔑existem 5 especialidades fixas:
+                📌JS
+                📌CSS
+                📌React
+                📌Typescript
+                📌POO (Programação Orientada a Objetos)
+
+
+<h2><strong>Funcionalidades básicas</strong></h2>
+
+><h3><strong>Criar Turma</strong></h3>
+  >Para criar uma turma, os dados enviados ao banco precisam ser uma instância de classe Turma
+
+><h3><strong>Buscar Turmas Ativas</strong></h3>
+
+><h3><strong>Mudar Turma de Modulo</strong></h3>
+
+><h3><strong>Criar Estudante</strong></h3>
+  >Para criar um estudante, os dados enviados ao banco precisam ser uma instância de classe Estudante;
+
+
+><h3><strong>Buscar estudantes através do nome</strong></h3>
+
+><h3><strong>Mudar Docente de Turma</strong></h3>
+
+<h2><strong>Instruções</strong></h2>
+
+  1 - Deve haver no seu banco: duas turmas, dois alunos e dois professores. Adicione as pessoas às turmas da forma como achar mais pertinente, seja manualmente pelo banco de dados, seja pela aplicação através de um endpoint.
+
+  2 - Você deve salvar as informações das turmas em tabelas TURMA, estudantes em ESTUDANTE e docentes em DOCENTE
+  
+ <h2><strong>Modelagem de Referencia</strong></h2>
+ 
+![Modelagem de referencia](https://user-images.githubusercontent.com/102332717/211152347-dea625bc-b9fd-4584-b967-44b8c4cd6095.png)
